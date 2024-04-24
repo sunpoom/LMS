@@ -128,6 +128,9 @@
             display: none;
         }
 
+        #studentSearchArea {
+            display: none;
+        }
 
     </style>
     <script src="../../resources/js/jquery-3.6.0.min.js"></script>
@@ -220,14 +223,35 @@
             </div>
             <%--개인정보 변경--%>
             <div id="personalModifyWrap">
-                아이디 : <input type="text" name="id" id="idIput"><br>
+                아이디 : <input type="text" name="id" class="idIput"><br>
                 이름 : ${user.name}<br>
                 이메일 : <input type="email" name="email" id="emailInput"><br>
                 비밀번호 : <input type="password" name="password" id="passwordInput"><br>
+                <input type="hidden" class="numInput" value="${user.num}">
                 <button type="button" id="modifyBtn">수정하기</button>
             </div>
             <%--학생 추가--%>
+            <div id="studentAddWrap">
+                이름 : <input type="text" name="name" class="nameAdd"><br>
+                학번 : <input type="text" name="student_id" class="studentNumAdd"><br>
+                학과 : <input type="text" name="major" class="majorAdd"><br>
+                비밀번호 : <input type="password" name="pw" class="passwordAdd"><br>
+                <button type="button" id="studentAddBtn">등록하기</button>
+            </div>
             <%--학생조회--%>
+            <div id="studentSearchWrap">
+                이름 : <input type="text" name="name" class="nameSearch"><br>
+                학번 : <input type="text" name="student_id" class="NumSearch"><br>
+                <button type="button" id="studentSearchBtn">조회하기</button>
+                <p></p>
+                <div id="studentSearchArea">
+                    <p id="searchName"></p>
+                    <p id="searchNum"></p>
+                    <p id="searchYear"></p>
+                    <p id="searchMajor"></p>
+                    <p id="searchRegistrationDate"></p>
+                </div>
+            </div>
             <%--교수 추가--%>
             <%--교수 조회--%>
             <%--공지사항--%>
@@ -248,36 +272,9 @@
             $(this).next().css("display", "block")
         }
     })
-    $(document).on("click", ".item", function () {
-        $("#main").children().css("display", "none")
-        if ($(this).text() === '기본정보') {
-            $("#personalInformationWrap").css("display", "block")
-        } else if ($(this).text() === '개인정보 변경') {
-            $("#personalModifyWrap").css("display", "block");
-        }
-    })
-    $(document).on("click","#modifyBtn",function () {
-        var data = {
-            id: $('#idIput').val(),
-            email :$('#emailInput').val(),
-            pw: $('#passwordInput').val(),
-        };
-        $.ajax({
-            url: "api/admin/modify/"+${user.num}, // 데이터를 가져올 URL
-            method: "POST", // HTTP 메서드 (GET, POST 등)
-            dataType: "json", // 받아올 데이터 형식 (json, xml 등)
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(data),
-            success: function (data){
-                alert("로그인을 다시하세요")
-                window.location.href="index/login";
-            },
-            error:function (xhr, status, error) {
-                alert(xhr.responseText)
-            }
-        })
-    })
 
 </script>
+<script src="../../resources/js/admin/menuBar.js"></script>
+<script src="../../resources/js/admin/menuAjax.js"></script>
 </body>
 </html>

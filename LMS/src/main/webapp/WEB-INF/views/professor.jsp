@@ -171,17 +171,17 @@
                 </ul>
             </li>
             <li>
-                <div class="navBtn">수강정보</div>
+                <div class="navBtn">강좌정보</div>
                 <ul class="navItem">
-                    <li class="item">수강신청</li>
-                    <li class="item">수강현황</li>
+                    <li class="item">강좌등록</li>
+                    <li class="item">강좌현황</li>
                 </ul>
             </li>
             <li>
-                <div class="navBtn">성적정보</div>
+                <div class="navBtn">과제 및 성적</div>
                 <ul class="navItem">
-                    <li class="item">전체성적조회</li>
-                    <li class="item">금학기성적조회</li>
+                    <li class="item">과제등록</li>
+                    <li class="item">성적등록</li>
                 </ul>
             </li>
             <li>

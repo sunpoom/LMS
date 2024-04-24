@@ -1,8 +1,11 @@
 package com.lms.www.springboot.domain.student.service;
 
-import com.lms.www.springboot.domain.exception.EntityNotFoundException;
 import com.lms.www.springboot.domain.student.entity.Student;
 import com.lms.www.springboot.domain.student.repository.StudentRepository;
+import com.lms.www.springboot.exception.EntityNotFoundException;
+import com.lms.www.springboot.model.adminFeature.StudentAddRequestDTO;
+import com.lms.www.springboot.model.adminFeature.StudentSearchRequestDTO;
+import com.lms.www.springboot.model.adminFeature.StudentSearchResponseDTO;
 import com.lms.www.springboot.model.user.UserLoginRequestDTO;
 import com.lms.www.springboot.model.user.UserLoginResponseDTO;
 import lombok.RequiredArgsConstructor;
@@ -28,5 +31,19 @@ public class StudentServiceImpl implements StudentService {
         }
 
         return new UserLoginResponseDTO(student);
+    }
+
+    @Override
+    public void adminStudentAdd(StudentAddRequestDTO studentAddRequestDTO) {
+        studentRepository.save(studentAddRequestDTO.toEntity());
+    }
+
+    @Override
+    public StudentSearchResponseDTO adminStudentSearch(StudentSearchRequestDTO studentSearchRequestDTO) {
+        Student student = studentRepository.studentSearch(studentSearchRequestDTO.getName(), studentSearchRequestDTO.getStudent_id());
+        if (student == null) {
+            throw new EntityNotFoundException("해당 이름과 학번은 존재하지않습니다.");
+        }
+        return new StudentSearchResponseDTO(student);
     }
 }

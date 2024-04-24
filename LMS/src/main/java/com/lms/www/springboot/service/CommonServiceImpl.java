@@ -3,6 +3,9 @@ package com.lms.www.springboot.service;
 import com.lms.www.springboot.domain.admin.service.AdminService;
 import com.lms.www.springboot.domain.professor.service.ProfessorService;
 import com.lms.www.springboot.domain.student.service.StudentService;
+import com.lms.www.springboot.model.adminFeature.StudentAddRequestDTO;
+import com.lms.www.springboot.model.adminFeature.StudentSearchRequestDTO;
+import com.lms.www.springboot.model.adminFeature.StudentSearchResponseDTO;
 import com.lms.www.springboot.model.user.UserLoginRequestDTO;
 import com.lms.www.springboot.model.user.UserLoginResponseDTO;
 import com.lms.www.springboot.model.user.UserModifyRequestDTO;
@@ -51,6 +54,16 @@ public class CommonServiceImpl implements CommonService {
             UserModifyRequestDTO userModifyRequestDTO
     ) {
         adminService.userModify(num, userModifyRequestDTO);
+    }
+
+    @Override
+    public void adminStudentAdd(StudentAddRequestDTO studentAddRequestDTO) {
+        studentService.adminStudentAdd(studentAddRequestDTO);
+    }
+
+    @Override
+    public StudentSearchResponseDTO adminStudentSearch(StudentSearchRequestDTO studentSearchRequestDTO) {
+        return studentService.adminStudentSearch(studentSearchRequestDTO);
     }
 
     private boolean validateUser(UserLoginRequestDTO user) {

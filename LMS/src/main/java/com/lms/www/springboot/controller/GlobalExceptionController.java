@@ -1,6 +1,6 @@
 package com.lms.www.springboot.controller;
 
-import com.lms.www.springboot.domain.exception.EntityNotFoundException;
+import com.lms.www.springboot.exception.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;

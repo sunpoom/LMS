@@ -3,13 +3,12 @@ package com.lms.www.springboot.domain.student.entity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @NoArgsConstructor
+@DynamicInsert
 @Getter
 @Entity
 public class Student {
@@ -21,6 +20,7 @@ public class Student {
     private String email;
     private String password;
     private String registration_date;
+    @Column(insertable = false)
     private int year;
     private String major;
     private String sub_major;

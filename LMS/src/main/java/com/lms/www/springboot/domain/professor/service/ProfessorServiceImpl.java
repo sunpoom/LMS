@@ -1,8 +1,8 @@
 package com.lms.www.springboot.domain.professor.service;
 
-import com.lms.www.springboot.domain.exception.EntityNotFoundException;
 import com.lms.www.springboot.domain.professor.entity.Professor;
 import com.lms.www.springboot.domain.professor.repository.ProfessorRepository;
+import com.lms.www.springboot.exception.EntityNotFoundException;
 import com.lms.www.springboot.model.user.UserLoginRequestDTO;
 import com.lms.www.springboot.model.user.UserLoginResponseDTO;
 import lombok.RequiredArgsConstructor;

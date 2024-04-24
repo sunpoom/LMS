@@ -2,7 +2,7 @@ package com.lms.www.springboot.domain.admin.service;
 
 import com.lms.www.springboot.domain.admin.entity.Admin;
 import com.lms.www.springboot.domain.admin.repository.AdminRepository;
-import com.lms.www.springboot.domain.exception.EntityNotFoundException;
+import com.lms.www.springboot.exception.EntityNotFoundException;
 import com.lms.www.springboot.model.user.UserLoginRequestDTO;
 import com.lms.www.springboot.model.user.UserLoginResponseDTO;
 import com.lms.www.springboot.model.user.UserModifyRequestDTO;
@@ -29,7 +29,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     @Transactional
     public void userModify(Long num, UserModifyRequestDTO userModifyRequestDTO) {
-        Admin admin=adminRepository.findById(num).orElseThrow(()->new EntityNotFoundException("해당 아이디가 없습니다"));
+        Admin admin = adminRepository.findById(num).orElseThrow(() -> new EntityNotFoundException("해당 아이디가 없습니다"));
         admin.modify(userModifyRequestDTO);
     }
 }
