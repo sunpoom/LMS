@@ -245,15 +245,35 @@
                 <button type="button" id="studentSearchBtn">조회하기</button>
                 <p></p>
                 <div id="studentSearchArea">
-                    <p id="searchName"></p>
-                    <p id="searchNum"></p>
-                    <p id="searchYear"></p>
-                    <p id="searchMajor"></p>
-                    <p id="searchRegistrationDate"></p>
+                    <p class="searchName"></p>
+                    <p class="searchNum"></p>
+                    <p class="searchYear"></p>
+                    <p class="searchMajor"></p>
+                    <p class="searchRegistrationDate"></p>
                 </div>
             </div>
             <%--교수 추가--%>
+            <div id="professorAddWrap">
+                이름 : <input type="text" name="name" class="professorNameAdd"><br>
+                학번 : <input type="text" name="professor_id" class="professorNumAdd"><br>
+                학과 : <input type="text" name="major" class="professorMajorAdd"><br>
+                비밀번호 : <input type="password" name="pw" class="professorPasswordAdd"><br>
+                <button type="button" id="professorAddBtn">등록하기</button>
+            </div>
             <%--교수 조회--%>
+            <div id="professorSearchWrap">
+                이름 : <input type="text" name="name" class="professorNameSearch"><br>
+                학번 : <input type="text" name="professor_id" class="professorNumSearch"><br>
+                <button type="button" id="professorSearchBtn">조회하기</button>
+                <p></p>
+                <div id="professorSearchArea">
+                    <p class="searchName"></p>
+                    <p class="searchNum"></p>
+                    <p class="searchYear"></p>
+                    <p class="searchMajor"></p>
+                    <p class="searchRegistrationDate"></p>
+                </div>
+            </div>
             <%--공지사항--%>
         </div>
     </div>

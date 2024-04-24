@@ -1,8 +1,6 @@
 package com.lms.www.springboot.controller;
 
-import com.lms.www.springboot.model.adminFeature.StudentAddRequestDTO;
-import com.lms.www.springboot.model.adminFeature.StudentSearchRequestDTO;
-import com.lms.www.springboot.model.adminFeature.StudentSearchResponseDTO;
+import com.lms.www.springboot.model.adminFeature.*;
 import com.lms.www.springboot.service.CommonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -28,5 +26,15 @@ public class AdminController {
         return ResponseEntity.ok(studentSearchResponseDTO);
     }
 
+    @PostMapping("/index/api/admin/professorAdd")
+    public ResponseEntity<String> adminProfessorAdd(@RequestBody ProfessorAddRequestDTO professorAddRequestDTO) {
+        commonService.adminProfessorAdd(professorAddRequestDTO);
+        return ResponseEntity.ok("");
+    }
 
+    @PostMapping("/index/api/admin/professorSearch")
+    public ResponseEntity<ProfessorSearchResponseDTO> adminProfessorSearch(@RequestBody ProfessorSearchRequestDTO professorSearchRequestDTO) {
+        ProfessorSearchResponseDTO professorSearchResponseDTO = commonService.adminProfessorSearch(professorSearchRequestDTO);
+        return ResponseEntity.ok(professorSearchResponseDTO);
+    }
 }

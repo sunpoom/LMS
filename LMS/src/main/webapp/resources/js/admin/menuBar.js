@@ -8,5 +8,9 @@ $(document).on("click", ".item", function () {
         $("#studentAddWrap").css("display", "block");
     } else if ($(this).text() === '학생조회') {
         $("#studentSearchWrap").css("display", "block");
+    } else if ($(this).text() === '교수추가') {
+        $("#professorAddWrap").css("display", "block");
+    } else if ($(this).text() === '교수조회') {
+        $("#professorSearchWrap").css("display", "block");
     }
 })

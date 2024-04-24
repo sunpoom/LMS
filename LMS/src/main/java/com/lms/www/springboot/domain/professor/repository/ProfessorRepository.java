@@ -13,4 +13,7 @@ public interface ProfessorRepository extends JpaRepository<Professor, String> {
 
     @Query("select p from Professor p where p.professor_id=:id and p.password=:pw")
     Professor findByIdAndPassword(@Param("id") String id, @Param("pw") String pw);
+
+    @Query("select p from Professor p where p.name=:name and p.professor_id=:professorId")
+    Professor professorSearch(String name, String professorId);
 }
